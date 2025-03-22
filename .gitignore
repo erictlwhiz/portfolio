@@ -4,3 +4,7 @@
 # Ignore macOS system files
 .DS_Store
 **/.DS_Store
+
+# Ignore environment files
+.env
+**/.env

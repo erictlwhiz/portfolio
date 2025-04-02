@@ -1,4 +1,3 @@
-// filepath: /Users/ericwu/Documents/portfolio/learning/client/src/pages/Home.jsx
 import React from 'react';
 import './styles/Home.css';
 

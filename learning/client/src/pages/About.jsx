@@ -10,7 +10,7 @@ const About = () => {
 			</div>
 			<div className="about-content">
 				<div className="about-card">
-					<img src="/team.jpg" alt="Our Team" className="about-image" />
+					<img src="/logo.png" alt="Our Team" className="about-image" />
 					<h2>Our Mission</h2>
 					<p>
 						At ETLWHIZ, we aim to simplify data transformation and empower
@@ -19,7 +19,7 @@ const About = () => {
 					</p>
 				</div>
 				<div className="about-card">
-					<img src="/vision.jpg" alt="Our Vision" className="about-image" />
+					<img src="/logo.png" alt="Our Vision" className="about-image" />
 					<h2>Our Vision</h2>
 					<p>
 						We envision a world where data integration is seamless and

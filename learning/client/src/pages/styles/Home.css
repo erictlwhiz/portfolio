@@ -4,6 +4,8 @@
 	padding: 20px;
 }
 
-.content {
-	margin-top: 20px;
+.home h1 {
+	font-size: 36px;
+	color: #007bff;
+	margin-bottom: 20px;
 }

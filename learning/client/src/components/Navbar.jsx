@@ -9,12 +9,16 @@ const Navbar = () => {
         <Link to="/">
           <img src="/logo.png" alt="Home Logo" className="navbar-logo" />
         </Link>
+        <Link to="/">
+          <span className="navbar-logo-text">ETLWHIZ</span>
+        </Link>
       </div>
       <ul className="navbar-links">
         <li><Link to="/reactsetup">React Setup</Link></li>
         <li><Link to="/about">About</Link></li>
       </ul>
     </nav>
+    
   );
 };
 

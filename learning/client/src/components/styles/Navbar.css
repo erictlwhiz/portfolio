@@ -1,44 +1,57 @@
 /* Navbar container */
 .navbar {
     background-color: #ffffff; /* Background putih */
-    padding: 10px 20px;
-    display: flex;
+    padding: 10px 20px; /* Padding di sekitar navbar */
+    display: flex; /* Atur elemen dalam satu baris */
     align-items: center; /* Vertikal rata tengah */
-    justify-content: flex-start; /* Elemen di kiri */
+    justify-content: space-between; /* Elemen sejajar ke kiri */
     gap: 20px; /* Jarak antara logo dan tautan */
 }
 
 /* Logo container */
 .navbar-logo-container {
-    flex-shrink: 0; /* Mencegah logo mengecil */
+    display: flex; /* Atur elemen dalam satu baris */
+    align-items: center; /* Vertikal rata tengah */
+    gap: 20px; /* Jarak antara logo dan teks */
 }
 
 /* Logo styling */
 .navbar-logo {
     height: 50px; /* Tinggi logo */
     width: 50px; /* Lebar logo */
-    border-radius: 50%; /* Membuat logo berbentuk lingkaran */
     object-fit: cover; /* Memastikan gambar terpotong dengan baik */
-    border: 2px solid white; /* Border putih untuk estetika */
+    border-radius: 50%; /* Membuat logo berbentuk lingkaran */
+}
+
+/* Teks logo */
+.navbar-logo-text {
+    display: inline-block; /* Pastikan teks tidak memaksa baris baru */
+    font-size: 20px; /* Ukuran teks */
+    font-weight: bold; /* Teks tebal */
+    color: #333; /* Warna teks */
+    line-height: 1; /* Pastikan tidak ada spasi vertikal tambahan */
+    margin: 0; /* Hilangkan margin default */
+    padding: 0; /* Hilangkan padding default */
 }
 
 /* Navbar links */
 .navbar-links {
-    list-style: none;
-    display: flex;
+    list-style: none; /* Hilangkan bullet pada daftar */
+    display: flex; /* Atur elemen dalam satu baris */
     gap: 15px; /* Jarak antar tautan */
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Hilangkan margin default */
+    padding: 0; /* Hilangkan padding default */
 }
 
 /* Tautan navbar */
 .navbar-links li a {
     color: #333333; /* Warna teks abu-abu gelap */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-size: 16px; /* Ukuran teks */
+    transition: color 0.3s ease; /* Animasi saat hover */
 }
 
 .navbar-links li a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Garis bawah saat hover */
+    color: #007BFF; /* Warna biru saat hover */
 }

@@ -1,22 +1,24 @@
 .react-setup {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
-  
-  .react-setup h1 {
-    color: #4caf50;
-    text-align: center;
-  }
-  
-  .react-setup ol {
-    margin: 20px auto;
-    max-width: 600px;
-    text-align: left;
-  }
-  
-  .react-setup code {
-    background-color: #f4f4f4;
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-family: monospace;
-  }
+	font-family: Arial, sans-serif;
+	padding: 20px;
+	text-align: center;
+}
+
+.react-setup h1 {
+	color: #007bff;
+	font-size: 36px;
+	margin-bottom: 20px;
+}
+
+.react-setup ol {
+	margin: 20px auto;
+	max-width: 600px;
+	text-align: left;
+}
+
+.react-setup code {
+	background-color: #f4f4f4;
+	padding: 2px 4px;
+	border-radius: 4px;
+	font-family: monospace;
+}

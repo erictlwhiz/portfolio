@@ -13,6 +13,9 @@
 	align-items: center; /* Vertikal rata tengah */
 	justify-content: space-between; /* Elemen sejajar ke kiri dan kanan */
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease; /* Animasi perubahan warna */
 }
 
 /* Navbar transparan saat di-scroll */

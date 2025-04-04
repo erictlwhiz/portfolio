@@ -5,6 +5,9 @@
 	display: flex;
 	flex-direction: column;
 	padding-top: 50px; /* Padding atas untuk menghindari tumpang tindih dengan navbar */
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease; /* Animasi perubahan warna */
 }
 
 /* Dark mode untuk App */

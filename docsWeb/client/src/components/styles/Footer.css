@@ -1,15 +1,24 @@
 /* Styling untuk Footer */
 .footer {
-	background-color: #333; /* Warna latar belakang gelap */
-	color: #fff; /* Warna teks putih */
+	background-color: #fff; /* Warna latar belakang putih (default) */
+	color: #333; /* Warna teks gelap */
 	text-align: center; /* Teks rata tengah */
 	padding: 10px 0; /* Padding atas dan bawah */
 	font-size: 14px; /* Ukuran font */
 	position: relative; /* Posisi relatif untuk footer */
 	bottom: 0;
 	width: 100%; /* Lebar penuh */
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease; /* Animasi perubahan warna */
 }
 
 .footer-text {
 	margin: 0; /* Hilangkan margin default */
+}
+
+/* Dark mode untuk Footer */
+body.dark-mode .footer {
+	background-color: #333; /* Warna latar belakang gelap */
+	color: #fff; /* Warna teks putih */
 }

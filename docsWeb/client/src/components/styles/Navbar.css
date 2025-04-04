@@ -1,57 +1,149 @@
 /* Navbar container */
 .navbar {
-    background-color: #ffffff; /* Background putih */
-    padding: 10px 20px; /* Padding di sekitar navbar */
-    display: flex; /* Atur elemen dalam satu baris */
-    align-items: center; /* Vertikal rata tengah */
-    justify-content: space-between; /* Elemen sejajar ke kiri */
-    gap: 20px; /* Jarak antara logo dan tautan */
+	position: fixed; /* Membuat navbar tetap terlihat saat di-scroll */
+	top: 0;
+	left: 0;
+	width: 100%; /* Navbar memenuhi lebar layar */
+	z-index: 1000; /* Pastikan navbar berada di atas elemen lain */
+	background-color: rgba(
+		255,
+		255,
+		255,
+		1
+	); /* Warna putih dengan opasitas penuh */
+	transition:
+		background-color 0.3s ease,
+		box-shadow 0.3s ease; /* Animasi perubahan background dan bayangan */
+	padding: 10px; /* Padding di sekitar navbar */
+	display: flex; /* Atur elemen dalam satu baris */
+	align-items: center; /* Vertikal rata tengah */
+	justify-content: space-between; /* Elemen sejajar ke kiri dan kanan */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk estetika */
+}
+
+/* Navbar transparan saat di-scroll */
+.navbar.transparent {
+	background-color: rgba(
+		255,
+		255,
+		255,
+		0.5
+	); /* Warna putih dengan transparansi */
+	box-shadow: none; /* Hilangkan bayangan saat transparan */
+	backdrop-filter: blur(10px); /* Tambahkan efek blur untuk estetika */
 }
 
 /* Logo container */
 .navbar-logo-container {
-    display: flex; /* Atur elemen dalam satu baris */
-    align-items: center; /* Vertikal rata tengah */
-    gap: 20px; /* Jarak antara logo dan teks */
+	display: flex; /* Atur elemen dalam satu baris */
+	align-items: center; /* Vertikal rata tengah */
+	gap: 10px; /* Jarak antara logo dan teks */
+	flex-shrink: 0; /* Jangan biarkan logo mengecil */
 }
 
 /* Logo styling */
 .navbar-logo {
-    height: 50px; /* Tinggi logo */
-    width: 50px; /* Lebar logo */
-    object-fit: cover; /* Memastikan gambar terpotong dengan baik */
-    border-radius: 50%; /* Membuat logo berbentuk lingkaran */
+	height: 50px; /* Tinggi logo */
+	width: 50px; /* Lebar logo */
+	object-fit: cover; /* Memastikan gambar terpotong dengan baik */
+	border-radius: 50%; /* Membuat logo berbentuk lingkaran */
 }
 
 /* Teks logo */
 .navbar-logo-text {
-    display: inline-block; /* Pastikan teks tidak memaksa baris baru */
-    font-size: 20px; /* Ukuran teks */
-    font-weight: bold; /* Teks tebal */
-    color: #333; /* Warna teks */
-    line-height: 1; /* Pastikan tidak ada spasi vertikal tambahan */
-    margin: 0; /* Hilangkan margin default */
-    padding: 0; /* Hilangkan padding default */
+	display: inline-block; /* Pastikan teks tidak memaksa baris baru */
+	font-size: 20px; /* Ukuran teks */
+	font-weight: bold; /* Teks tebal */
+	color: #333; /* Warna teks */
 }
 
 /* Navbar links */
 .navbar-links {
-    list-style: none; /* Hilangkan bullet pada daftar */
-    display: flex; /* Atur elemen dalam satu baris */
-    gap: 15px; /* Jarak antar tautan */
-    margin: 0; /* Hilangkan margin default */
-    padding: 0; /* Hilangkan padding default */
+	display: flex; /* Atur elemen dalam satu baris */
+	gap: 20px; /* Jarak antar tautan */
+	margin-right: 30px; /* Hilangkan margin default */
+	padding: 0px; /* Hilangkan padding default */
 }
 
 /* Tautan navbar */
-.navbar-links li a {
-    color: #333333; /* Warna teks abu-abu gelap */
-    text-decoration: none; /* Hilangkan garis bawah */
-    font-size: 16px; /* Ukuran teks */
-    transition: color 0.3s ease; /* Animasi saat hover */
+.navbar-links-item {
+	display: inline-block; /* Pastikan tautan dapat diklik penuh */
+	color: #333333; /* Warna teks abu-abu gelap */
+	font-size: 16px; /* Ukuran teks */
+	transition: color 0.3s ease; /* Animasi saat hover */
 }
 
-.navbar-links li a:hover {
-    text-decoration: underline; /* Garis bawah saat hover */
-    color: #007BFF; /* Warna biru saat hover */
+.navbar-links-item:hover {
+	text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Dropdown container */
+.navbar-dropdown {
+	position: relative; /* Posisi relatif untuk dropdown */
+	display: none; /* Sembunyikan dropdown secara default */
+	margin-right: 20px; /* Margin kanan untuk jarak */
+}
+
+/* Dropdown menu */
+.navbar-dropdown-menu {
+	display: none; /* Sembunyikan menu secara default */
+	position: absolute; /* Posisi absolut relatif terhadap container */
+	top: 100%; /* Tampilkan di bawah elemen dropdown */
+	left: 0;
+	background-color: #ffffff; /* Warna latar belakang dropdown */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+	padding: 10px 0; /* Padding di dalam menu */
+	list-style: none; /* Hilangkan bullet pada daftar */
+	z-index: 1000; /* Pastikan dropdown berada di atas elemen lain */
+	min-width: 150px; /* Lebar minimum dropdown */
+}
+
+/* Tampilkan menu saat hover */
+.navbar-dropdown:hover .navbar-dropdown-menu {
+	display: block; /* Tampilkan menu */
+}
+
+/* Dropdown item */
+.navbar-dropdown-menu li {
+	padding: 10px 20px; /* Padding untuk item dropdown */
+}
+
+.navbar-dropdown-menu li a {
+	color: #333; /* Warna teks */
+	text-decoration: none; /* Hilangkan garis bawah */
+	font-size: 16px; /* Ukuran teks */
+	display: block; /* Pastikan tautan memenuhi area klik */
+	transition: background-color 0.3s ease; /* Animasi saat hover */
+}
+
+.navbar-dropdown-menu li a:hover {
+	background-color: #f4f4f4; /* Warna latar belakang saat hover */
+}
+
+/* Responsif untuk layar kecil (max-width: 350px) */
+@media (max-width: 350px) {
+	.navbar-logo-text {
+		display: none; /* Sembunyikan teks logo */
+	}
+
+	.navbar-links {
+		display: none; /* Sembunyikan tautan navbar */
+	}
+
+	.navbar-dropdown {
+		display: block; /* Tampilkan dropdown menu */
+	}
+}
+
+/* Responsif untuk layar sedang (351px hingga 768px) */
+@media (min-width: 351px) and (max-width: 768px) {
+	.navbar-links {
+		display: flex; /* Tampilkan tautan navbar */
+		gap: 10px; /* Jarak antar tautan */
+		margin-right: 20px; /* Margin kanan */
+	}
+
+	.navbar-dropdown {
+		display: none; /* Sembunyikan dropdown menu */
+	}
 }

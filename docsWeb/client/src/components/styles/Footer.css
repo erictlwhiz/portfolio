@@ -1,0 +1,15 @@
+/* Styling untuk Footer */
+.footer {
+	background-color: #333; /* Warna latar belakang gelap */
+	color: #fff; /* Warna teks putih */
+	text-align: center; /* Teks rata tengah */
+	padding: 10px 0; /* Padding atas dan bawah */
+	font-size: 14px; /* Ukuran font */
+	position: relative; /* Posisi relatif untuk footer */
+	bottom: 0;
+	width: 100%; /* Lebar penuh */
+}
+
+.footer-text {
+	margin: 0; /* Hilangkan margin default */
+}

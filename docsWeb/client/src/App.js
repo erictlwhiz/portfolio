@@ -11,6 +11,7 @@ import Algorithm from './pages/Algorithm'; // Pastikan path ini sesuai dengan lo
 import ReactSetup from './pages/ReactSetup'; // Pastikan path ini sesuai dengan lokasi ReactSetup.jsx
 import About from './pages/About'; // Pastikan path ini sesuai dengan lokasi About.jsx
 import Navbar from './components/Navbar'; // Pastikan path ini sesuai dengan lokasi Navbar.jsx
+import Footer from './components/Footer'; // Pastikan path ini sesuai dengan lokasi Footer.jsx
 
 function App() {
 	const [isDarkMode, setIsDarkMode] = useState(false);
@@ -58,6 +59,7 @@ function App() {
 					<Route path="/about" element={<About />} />
 				</Routes>
 			</Router>
+			<Footer />
 		</div>
 	);
 }

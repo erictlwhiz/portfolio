@@ -4,4 +4,16 @@
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	padding-top: 50px; /* Padding atas untuk menghindari tumpang tindih dengan navbar */
+}
+
+/* Dark mode untuk App */
+body.dark-mode .App {
+	background-color: #333333; /* Warna latar belakang gelap */
+	color: #ffffff; /* Warna teks terang */
+}
+
+/* Pastikan navbar memiliki tinggi tetap */
+.navbar {
+	height: 45px; /* Tinggi navbar */
 }

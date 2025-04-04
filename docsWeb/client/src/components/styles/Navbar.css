@@ -1,57 +1,46 @@
 /* Navbar container */
 .navbar {
-	position: fixed; /* Membuat navbar tetap terlihat saat di-scroll */
+	position: fixed; /* Navbar tetap terlihat saat di-scroll */
 	top: 0;
 	left: 0;
 	width: 100%; /* Navbar memenuhi lebar layar */
 	z-index: 1000; /* Pastikan navbar berada di atas elemen lain */
-	background-color: rgba(
-		255,
-		255,
-		255,
-		1
-	); /* Warna putih dengan opasitas penuh */
+	background-color: rgba(255, 255, 255, 1); /* Warna putih */
 	transition:
 		background-color 0.3s ease,
-		box-shadow 0.3s ease; /* Animasi perubahan background dan bayangan */
+		box-shadow 0.3s ease; /* Animasi perubahan background */
 	padding: 10px; /* Padding di sekitar navbar */
-	display: flex; /* Atur elemen dalam satu baris */
+	display: flex; /* Elemen dalam satu baris */
 	align-items: center; /* Vertikal rata tengah */
 	justify-content: space-between; /* Elemen sejajar ke kiri dan kanan */
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk estetika */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
 }
 
 /* Navbar transparan saat di-scroll */
 .navbar.transparent {
-	background-color: rgba(
-		255,
-		255,
-		255,
-		0.5
-	); /* Warna putih dengan transparansi */
-	box-shadow: none; /* Hilangkan bayangan saat transparan */
-	backdrop-filter: blur(10px); /* Tambahkan efek blur untuk estetika */
+	background-color: rgba(255, 255, 255, 0.5); /* Warna putih transparan */
+	box-shadow: none; /* Hilangkan bayangan */
+	backdrop-filter: blur(10px); /* Efek blur */
 }
 
 /* Logo container */
 .navbar-logo-container {
-	display: flex; /* Atur elemen dalam satu baris */
+	display: flex; /* Elemen dalam satu baris */
 	align-items: center; /* Vertikal rata tengah */
 	gap: 10px; /* Jarak antara logo dan teks */
-	flex-shrink: 0; /* Jangan biarkan logo mengecil */
 }
 
 /* Logo styling */
 .navbar-logo {
 	height: 50px; /* Tinggi logo */
 	width: 50px; /* Lebar logo */
-	object-fit: cover; /* Memastikan gambar terpotong dengan baik */
+	object-fit: cover; /* Memastikan gambar tidak terdistorsi */
 	border-radius: 50%; /* Membuat logo berbentuk lingkaran */
 }
 
 /* Teks logo */
 .navbar-logo-text {
-	display: inline-block; /* Pastikan teks tidak memaksa baris baru */
+	display: inline-block; /* Teks dalam satu baris */
 	font-size: 20px; /* Ukuran teks */
 	font-weight: bold; /* Teks tebal */
 	color: #333; /* Warna teks */
@@ -59,16 +48,16 @@
 
 /* Navbar links */
 .navbar-links {
-	display: flex; /* Atur elemen dalam satu baris */
+	display: flex; /* Elemen dalam satu baris */
 	gap: 20px; /* Jarak antar tautan */
-	margin-right: 30px; /* Hilangkan margin default */
-	padding: 0px; /* Hilangkan padding default */
+	margin-right: 30px; /* Margin kanan */
+	padding: 0; /* Hilangkan padding */
 }
 
 /* Tautan navbar */
 .navbar-links-item {
-	display: inline-block; /* Pastikan tautan dapat diklik penuh */
-	color: #333333; /* Warna teks abu-abu gelap */
+	display: inline-block; /* Tautan dalam satu baris */
+	color: #333; /* Warna teks */
 	font-size: 16px; /* Ukuran teks */
 	transition: color 0.3s ease; /* Animasi saat hover */
 }
@@ -81,7 +70,8 @@
 .navbar-dropdown {
 	position: relative; /* Posisi relatif untuk dropdown */
 	display: none; /* Sembunyikan dropdown secara default */
-	margin-right: 20px; /* Margin kanan untuk jarak */
+	cursor: pointer;
+	margin-right: 30px; /* Jarak kanan */
 }
 
 /* Dropdown menu */
@@ -96,11 +86,7 @@
 	list-style: none; /* Hilangkan bullet pada daftar */
 	z-index: 1000; /* Pastikan dropdown berada di atas elemen lain */
 	min-width: 150px; /* Lebar minimum dropdown */
-}
-
-/* Tampilkan menu saat hover */
-.navbar-dropdown:hover .navbar-dropdown-menu {
-	display: block; /* Tampilkan menu */
+	border-radius: 4px; /* Tambahkan border radius */
 }
 
 /* Dropdown item */
@@ -118,6 +104,73 @@
 
 .navbar-dropdown-menu li a:hover {
 	background-color: #f4f4f4; /* Warna latar belakang saat hover */
+}
+
+/* Sidebar */
+.sidebar {
+	position: fixed;
+	top: 0;
+	right: -300px; /* Sidebar tersembunyi */
+	width: 300px;
+	height: 100vh;
+	background-color: #ffffff; /* Warna latar belakang sidebar */
+	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Bayangan sidebar */
+	transition: right 0.3s ease; /* Animasi saat sidebar muncul */
+	z-index: 1100; /* Pastikan sidebar berada di atas elemen lain */
+	display: flex;
+	flex-direction: column;
+}
+
+/* Sidebar terbuka */
+.sidebar.open {
+	right: 0; /* Sidebar muncul */
+}
+
+/* Sidebar header */
+.sidebar-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+}
+
+/* Close icon */
+.close-icon {
+	cursor: pointer;
+	color: #333;
+}
+
+/* Sidebar menu */
+.sidebar-menu {
+	list-style: none;
+	padding: 20px;
+	margin: 0;
+}
+
+.sidebar-menu li {
+	margin-bottom: 15px;
+}
+
+.sidebar-menu li a {
+	color: #333;
+	text-decoration: none;
+	font-size: 18px;
+	transition: color 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+	color: #007bff; /* Warna biru saat hover */
+}
+
+/* Overlay untuk sidebar */
+.sidebar-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5); /* Transparansi overlay */
+	z-index: 1000; /* Pastikan overlay berada di bawah sidebar */
 }
 
 /* Responsif untuk layar kecil (max-width: 350px) */
@@ -138,12 +191,48 @@
 /* Responsif untuk layar sedang (351px hingga 768px) */
 @media (min-width: 351px) and (max-width: 768px) {
 	.navbar-links {
-		display: flex; /* Tampilkan tautan navbar */
-		gap: 10px; /* Jarak antar tautan */
-		margin-right: 20px; /* Margin kanan */
+		display: none; /* Sembunyikan tautan navbar */
 	}
 
 	.navbar-dropdown {
-		display: none; /* Sembunyikan dropdown menu */
+		display: block; /* Tampilkan dropdown menu */
 	}
+}
+
+/* Dark mode untuk navbar */
+body.dark-mode .navbar {
+	background-color: #333; /* Warna latar belakang gelap */
+	color: #fff; /* Warna teks putih */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
+}
+
+body.dark-mode .navbar-logo-text {
+	color: #fff; /* Warna teks logo putih */
+}
+
+body.dark-mode .navbar-links-item {
+	color: #fff; /* Warna tautan putih */
+}
+
+/* Dark mode untuk sidebar */
+body.dark-mode .sidebar {
+	background-color: #333; /* Warna latar belakang sidebar gelap */
+	color: #fff; /* Warna teks sidebar putih */
+	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
+}
+
+body.dark-mode .sidebar-menu li a {
+	color: #fff; /* Warna tautan sidebar putih */
+}
+
+body.dark-mode .sidebar-menu li a:hover {
+	color: #007bff; /* Warna biru saat hover */
+}
+
+body.dark-mode .sidebar-header .close-icon {
+	color: #fff; /* Warna ikon close putih */
+}
+
+body.dark-mode .sidebar-overlay {
+	background-color: rgba(0, 0, 0, 0.8); /* Transparansi overlay lebih gelap */
 }

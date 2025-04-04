@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -12,13 +12,29 @@ import About from './pages/About'; // Pastikan path ini sesuai dengan lokasi Abo
 import Navbar from './components/Navbar'; // Pastikan path ini sesuai dengan lokasi Navbar.jsx
 
 function App() {
+	const [isDarkMode, setIsDarkMode] = useState(false);
+
+	// Fungsi untuk toggle dark mode
+	const toggleDarkMode = () => {
+		setIsDarkMode((prevMode) => !prevMode);
+		// Tambahkan atau hapus class "dark-mode" pada body
+		document.body.classList.toggle('dark-mode');
+	};
+
+	// Simpan preferensi dark mode di localStorage
+	useEffect(() => {
+		const savedMode = localStorage.getItem('dark-mode') === 'true';
+		setIsDarkMode(savedMode);
+		if (savedMode) {
+			document.body.classList.add('dark-mode');
+		}
+	}, []);
+
 	return (
 		<div className="App">
-			{' '}
-			{/* Tambahkan elemen root dengan class App */}
 			<Router>
 				{/* Navbar akan selalu terlihat di semua halaman */}
-				<Navbar />
+				<Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
 				<Routes>
 					{/* Redirect dari path kosong (/) ke /home */}
 					<Route path="/" element={<Navigate to="/home" replace />} />

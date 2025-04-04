@@ -4,11 +4,10 @@
 	top: 0;
 	left: 0;
 	width: 100%; /* Navbar memenuhi lebar layar */
+	height: 45px; /* Tinggi navbar */
+	overflow: hidden; /* Sembunyikan elemen yang melampaui batas */
 	z-index: 1000; /* Pastikan navbar berada di atas elemen lain */
 	background-color: rgba(255, 255, 255, 1); /* Warna putih */
-	transition:
-		background-color 0.3s ease,
-		box-shadow 0.3s ease; /* Animasi perubahan background */
 	padding: 10px; /* Padding di sekitar navbar */
 	display: flex; /* Elemen dalam satu baris */
 	align-items: center; /* Vertikal rata tengah */
@@ -59,7 +58,6 @@
 	display: inline-block; /* Tautan dalam satu baris */
 	color: #333; /* Warna teks */
 	font-size: 16px; /* Ukuran teks */
-	transition: color 0.3s ease; /* Animasi saat hover */
 }
 
 .navbar-links-item:hover {
@@ -72,38 +70,6 @@
 	display: none; /* Sembunyikan dropdown secara default */
 	cursor: pointer;
 	margin-right: 30px; /* Jarak kanan */
-}
-
-/* Dropdown menu */
-.navbar-dropdown-menu {
-	display: none; /* Sembunyikan menu secara default */
-	position: absolute; /* Posisi absolut relatif terhadap container */
-	top: 100%; /* Tampilkan di bawah elemen dropdown */
-	left: 0;
-	background-color: #ffffff; /* Warna latar belakang dropdown */
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
-	padding: 10px 0; /* Padding di dalam menu */
-	list-style: none; /* Hilangkan bullet pada daftar */
-	z-index: 1000; /* Pastikan dropdown berada di atas elemen lain */
-	min-width: 150px; /* Lebar minimum dropdown */
-	border-radius: 4px; /* Tambahkan border radius */
-}
-
-/* Dropdown item */
-.navbar-dropdown-menu li {
-	padding: 10px 20px; /* Padding untuk item dropdown */
-}
-
-.navbar-dropdown-menu li a {
-	color: #333; /* Warna teks */
-	text-decoration: none; /* Hilangkan garis bawah */
-	font-size: 16px; /* Ukuran teks */
-	display: block; /* Pastikan tautan memenuhi area klik */
-	transition: background-color 0.3s ease; /* Animasi saat hover */
-}
-
-.navbar-dropdown-menu li a:hover {
-	background-color: #f4f4f4; /* Warna latar belakang saat hover */
 }
 
 /* Sidebar */
@@ -155,11 +121,10 @@
 	color: #333;
 	text-decoration: none;
 	font-size: 18px;
-	transition: color 0.3s ease;
 }
 
 .sidebar-menu li a:hover {
-	color: #007bff; /* Warna biru saat hover */
+	text-decoration: underline; /* Garis bawah saat hover */
 }
 
 /* Overlay untuk sidebar */
@@ -204,6 +169,13 @@ body.dark-mode .navbar {
 	background-color: #333; /* Warna latar belakang gelap */
 	color: #fff; /* Warna teks putih */
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
+}
+
+/* Dark mode untuk navbar transparan saat di-scroll */
+body.dark-mode .navbar.transparent {
+	background-color: rgba(51, 51, 51, 0.5); /* Warna gelap transparan */
+	box-shadow: none; /* Hilangkan bayangan */
+	backdrop-filter: blur(10px); /* Efek blur untuk transparansi */
 }
 
 body.dark-mode .navbar-logo-text {

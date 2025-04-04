@@ -16,12 +16,21 @@ function App() {
 
 	// Fungsi untuk toggle dark mode
 	const toggleDarkMode = () => {
-		setIsDarkMode((prevMode) => !prevMode);
-		// Tambahkan atau hapus class "dark-mode" pada body
-		document.body.classList.toggle('dark-mode');
+		setIsDarkMode((prevMode) => {
+			const newMode = !prevMode;
+			// Simpan preferensi dark mode di localStorage
+			localStorage.setItem('dark-mode', newMode);
+			// Tambahkan atau hapus class "dark-mode" pada body
+			if (newMode) {
+				document.body.classList.add('dark-mode');
+			} else {
+				document.body.classList.remove('dark-mode');
+			}
+			return newMode;
+		});
 	};
 
-	// Simpan preferensi dark mode di localStorage
+	// Ambil preferensi dark mode dari localStorage saat halaman dimuat
 	useEffect(() => {
 		const savedMode = localStorage.getItem('dark-mode') === 'true';
 		setIsDarkMode(savedMode);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/Navbar.css';
 import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'; // Tambahkan ikon untuk dark mode
+import NavLinks from './NavLinks'; // Import komponen NavLinks
 
 const Navbar = ({ toggleDarkMode, isDarkMode }) => {
 	const [isTransparent, setIsTransparent] = useState(false);
@@ -39,14 +40,8 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
 					</Link>
 				</div>
 				<div className="navbar-links">
-					<Link to="/reactsetup">
-						<span className="navbar-links-item">React Setup</span>
-					</Link>
-					<Link to="/about">
-						<span className="navbar-links-item">About</span>
-					</Link>
-
-					{/* Tombol toggle dark mode */}
+					<NavLinks className="navbar-links-item" />{' '}
+					{/* Gunakan NavLinks di navbar */}
 					<div className="navbar-dark-mode-toggle" onClick={toggleDarkMode}>
 						{isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
 					</div>
@@ -71,18 +66,10 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
 						<FaTimes size={22} />
 					</span>
 				</div>
-				<ul className="sidebar-menu">
-					<li>
-						<Link to="/reactsetup" onClick={toggleSidebar}>
-							React Setup
-						</Link>
-					</li>
-					<li>
-						<Link to="/about" onClick={toggleSidebar}>
-							About
-						</Link>
-					</li>
-				</ul>
+				<div className="sidebar-menu">
+					<NavLinks className="sidebar-links-item" onClick={toggleSidebar} />{' '}
+					{/* Gunakan NavLinks di sidebar */}
+				</div>
 			</div>
 
 			{/* Overlay untuk menutup sidebar */}

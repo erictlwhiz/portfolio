@@ -1,5 +1,5 @@
 import React from 'react';
-import './Algorithm.css'; // Import file CSS untuk styling
+import './styles/Algorithm.css'; // Import file CSS untuk styling
 
 const Algorithm = () => {
 	return (

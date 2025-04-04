@@ -3,7 +3,7 @@ import './styles/ReactSetup.css';
 
 const ReactSetup = () => {
 	return (
-		<div className="react-setup">
+		<div className="react-setup-container">
 			<h1>React Setup Documentation</h1>
 			<ol>
 				<li>

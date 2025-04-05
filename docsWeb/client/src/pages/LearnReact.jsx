@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles/ReactSetup.css';
+import './styles/LearnReact.css';
 
-const ReactSetup = () => {
+const LearnReact = () => {
 	return (
 		<div className="react-setup-container">
 			<h1>React Setup Documentation</h1>
@@ -31,4 +31,4 @@ const ReactSetup = () => {
 	);
 };
 
-export default ReactSetup;
+export default LearnReact;

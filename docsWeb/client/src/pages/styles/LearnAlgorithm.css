@@ -1,0 +1,105 @@
+/* Container for the algorithm page */
+.algorithm-page {
+	display: flex; /* Membuat component-sidebar dan konten utama sejajar secara horizontal */
+	align-items: flex-start; /* Sidebar hanya setinggi kontennya */
+}
+
+/* Component Sidebar styling */
+.component-sidebar {
+	position: sticky; /* Sidebar tetap terlihat saat di-scroll */
+	top: 120px; /* Jarak dari atas halaman */
+	width: 150px;
+	padding-left: 20px;
+	border-right: 2px solid #ddd; /* Garis pemisah */
+	overflow-y: auto; /* Tambahkan scroll jika konten terlalu panjang */
+	font-family: Arial, sans-serif; /* Konsisten dengan font utama */
+}
+
+/* Component Sidebar title styling */
+.component-sidebar-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 15px;
+	text-align: left;
+}
+
+/* Component Sidebar menu styling */
+.component-sidebar-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Component Sidebar link styling */
+.component-sidebar-link {
+	text-decoration: none;
+	color: #0056d2; /* Warna biru untuk link */
+	font-size: 15px;
+	display: block;
+	padding: 5px 0;
+	transition: color 0.3s ease;
+}
+
+.component-sidebar-link:hover {
+	border-right: 2px solid darkgray; /* Garis biru saat hover */
+}
+
+/* Main content container */
+.algorithm-container {
+	flex: 1; /* Konten utama mengambil sisa ruang */
+	padding: 20px;
+	overflow-y: auto; /* Scroll terpisah untuk konten utama */
+}
+
+/* Title styling */
+.algorithm-title {
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+/* Description styling */
+.algorithm-description {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+/* Section styling */
+.algorithm-section {
+	margin-bottom: 40px;
+}
+
+/* Subtitle styling */
+.algorithm-subtitle {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 15px;
+}
+
+/* List styling */
+.algorithm-list {
+	list-style-type: disc;
+	padding-left: 20px;
+}
+
+.algorithm-list li {
+	font-size: 1rem;
+	line-height: 1.5;
+	margin-bottom: 10px;
+}
+
+/* Responsif untuk layar kecil (max-width: 350px) */
+@media (max-width: 768px) {
+	.component-sidebar {
+		display: none; /* Sembunyikan teks logo */
+	}
+}
+
+body.dark-mode .component-sidebar-link {
+	color: #4fc3f7; /* Warna biru untuk link */
+}

@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/Navbar.css';
-import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'; // Tambahkan ikon untuk dark mode
-import NavLinks from './NavLinks'; // Import komponen NavLinks
+import {
+	FaBars,
+	FaTimes,
+	FaMoon,
+	FaSun,
+	FaChevronDown,
+	FaChevronUp,
+} from 'react-icons/fa'; // Tambahkan ikon panah
 
 const Navbar = ({ toggleDarkMode, isDarkMode }) => {
 	const [isTransparent, setIsTransparent] = useState(false);
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State untuk mengontrol sidebar
+	const [openDropdown, setOpenDropdown] = useState(null); // State untuk melacak dropdown yang terbuka
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -28,6 +35,11 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
 		setIsSidebarOpen((prev) => !prev);
 	};
 
+	// Fungsi untuk toggle dropdown menu
+	const toggleDropdown = (dropdownName) => {
+		setOpenDropdown((prev) => (prev === dropdownName ? null : dropdownName));
+	};
+
 	return (
 		<>
 			<nav className={`navbar ${isTransparent ? 'transparent' : ''}`}>
@@ -39,36 +51,111 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
 						<span className="navbar-logo-text">ETLWHIZ</span>
 					</Link>
 				</div>
-				<div className="navbar-links">
-					<NavLinks className="navbar-links-item" />{' '}
-					{/* Gunakan NavLinks di navbar */}
+
+				<div className="navbar-right">
 					<div className="navbar-dark-mode-toggle" onClick={toggleDarkMode}>
 						{isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
 					</div>
-				</div>
 
-				{/* Ikon menu untuk membuka sidebar */}
-				<div className="navbar-dropdown">
-					<span className="navbar-links-item" onClick={toggleSidebar}>
-						<FaBars size={24} />
-					</span>
+					{/* Ikon menu untuk membuka sidebar */}
+					<div className="navbar-sidebar-toggle">
+						<span onClick={toggleSidebar}>
+							<FaBars size={24} />
+						</span>
+					</div>
 				</div>
 			</nav>
 
 			{/* Sidebar */}
 			<div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
 				<div className="sidebar-header">
-					{/* Tombol toggle dark mode */}
-					<div className="navbar-dark-mode-toggle" onClick={toggleDarkMode}>
-						{isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
-					</div>
 					<span className="close-icon" onClick={toggleSidebar}>
-						<FaTimes size={22} />
+						<FaTimes size={24} />
 					</span>
 				</div>
 				<div className="sidebar-menu">
-					<NavLinks className="sidebar-links-item" onClick={toggleSidebar} />{' '}
-					{/* Gunakan NavLinks di sidebar */}
+					{/* Dropdown Menu 1 */}
+					<div
+						className={`sidebar-dropdown ${openDropdown === 'resources' ? 'open' : ''}`}
+					>
+						<span
+							className="sidebar-links-item dropdown-toggle"
+							onClick={() => toggleDropdown('resources')}
+						>
+							Resources
+							{openDropdown === 'resources' ? (
+								<FaChevronUp className="dropdown-icon" />
+							) : (
+								<FaChevronDown className="dropdown-icon" />
+							)}
+						</span>
+						<ul className="dropdown-menu">
+							<li>
+								<Link
+									to="/algorithm"
+									className="dropdown-item"
+									onClick={toggleSidebar}
+								>
+									Algorithm
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/learnReact"
+									className="dropdown-item"
+									onClick={toggleSidebar}
+								>
+									React
+								</Link>
+							</li>
+						</ul>
+					</div>
+
+					{/* Dropdown Menu 2 */}
+					<div
+						className={`sidebar-dropdown ${openDropdown === 'exercises' ? 'open' : ''}`}
+					>
+						<span
+							className="sidebar-links-item dropdown-toggle"
+							onClick={() => toggleDropdown('exercises')}
+						>
+							Exercises
+							{openDropdown === 'exercises' ? (
+								<FaChevronUp className="dropdown-icon" />
+							) : (
+								<FaChevronDown className="dropdown-icon" />
+							)}
+						</span>
+						<ul className="dropdown-menu">
+							<li>
+								<Link
+									to="/algorithm"
+									className="dropdown-item"
+									onClick={toggleSidebar}
+								>
+									Algorithm
+								</Link>
+							</li>
+							<li>
+								<Link
+									to="/learnReact"
+									className="dropdown-item"
+									onClick={toggleSidebar}
+								>
+									React
+								</Link>
+							</li>
+						</ul>
+					</div>
+
+					{/* Tautan lainnya */}
+					<Link
+						to="/about"
+						className="sidebar-links-item"
+						onClick={toggleSidebar}
+					>
+						About
+					</Link>
 				</div>
 			</div>
 

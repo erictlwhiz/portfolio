@@ -6,6 +6,7 @@ const About = () => {
 		<div className="about-container">
 			<div className="about-header">
 				<h1>About Us</h1>
+				<p>Welcome to ETLWHIZ</p>
 			</div>
 			<div className="about-content">
 				<div className="about-card">

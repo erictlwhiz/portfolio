@@ -4,11 +4,11 @@
 	top: 0;
 	left: 0;
 	width: 100%; /* Navbar memenuhi lebar layar */
-	height: 45px; /* Tinggi navbar */
+	height: 50px; /* Tinggi navbar */
 	overflow: hidden; /* Sembunyikan elemen yang melampaui batas */
 	z-index: 1000; /* Pastikan navbar berada di atas elemen lain */
 	background-color: rgba(255, 255, 255, 1); /* Warna putih */
-	padding: 10px; /* Padding di sekitar navbar */
+	padding: 10px 20px; /* Padding di sekitar navbar */
 	display: flex; /* Elemen dalam satu baris */
 	align-items: center; /* Vertikal rata tengah */
 	justify-content: space-between; /* Elemen sejajar ke kiri dan kanan */
@@ -45,44 +45,37 @@
 	display: inline-block; /* Teks dalam satu baris */
 	font-size: 20px; /* Ukuran teks */
 	font-weight: bold; /* Teks tebal */
-	color: #333; /* Warna teks */
+	color: #0056d2; /* Warna biru */
 }
 
-/* Navbar links */
-.navbar-links {
+/* Navbar kanan */
+.navbar-right {
 	display: flex; /* Elemen dalam satu baris */
-	gap: 20px; /* Jarak antar tautan */
+	align-items: center; /* Vertikal rata tengah */
+	justify-content: flex-end; /* Elemen sejajar ke kanan */
+	gap: 20px; /* Jarak antara elemen */
 	margin-right: 30px; /* Margin kanan */
-	padding: 0; /* Hilangkan padding */
 }
 
-/* Tautan navbar */
-.navbar-links-item {
-	display: inline-block; /* Tautan dalam satu baris */
-	color: #333; /* Warna teks */
-	font-size: 16px; /* Ukuran teks */
+.navbar-dark-mode-toggle {
+	cursor: pointer; /* Kursor tangan saat hover */
+	transition: color 0.3s ease; /* Animasi perubahan warna */
+	color: #0056d2;
 }
 
-.navbar-links-item:hover {
-	text-decoration: underline; /* Garis bawah saat hover */
-}
-
-/* Dropdown container */
-.navbar-dropdown {
-	position: relative; /* Posisi relatif untuk dropdown */
-	display: none; /* Sembunyikan dropdown secara default */
-	cursor: pointer;
-	margin-right: 30px; /* Jarak kanan */
+.navbar-sidebar-toggle {
+	cursor: pointer; /* Kursor tangan saat hover */
+	color: #0056d2;
 }
 
 /* Sidebar */
 .sidebar {
 	position: fixed;
 	top: 0;
-	right: -300px; /* Sidebar tersembunyi */
-	width: 200px;
+	right: -300px; /* Sidebar tersembunyi di luar layar sebelah kanan */
+	width: 300px;
 	height: 100vh;
-	background-color: #ffffff; /* Warna latar belakang sidebar */
+	background-color: rgba(255, 255, 255, 0.9); /* Warna putih transparan */
 	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Bayangan sidebar */
 	transition: right 0.3s ease; /* Animasi saat sidebar muncul */
 	z-index: 1100; /* Pastikan sidebar berada di atas elemen lain */
@@ -92,35 +85,38 @@
 
 /* Sidebar terbuka */
 .sidebar.open {
-	right: 0; /* Sidebar muncul */
+	right: 0; /* Sidebar muncul di layar */
 }
 
 /* Sidebar header */
 .sidebar-header {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
-	padding: 10px 20px;
+	padding-top: 20px;
+	padding-right: 10px;
 }
 
 /* Close icon */
 .close-icon {
 	cursor: pointer;
-	color: #333;
+	color: #0056d2; /* Warna biru untuk ikon close */
 }
 
 /* Sidebar menu */
 .sidebar-menu {
 	list-style: none;
-	padding: 20px;
+	padding: 10px 0px 0px 20px; /* Padding untuk menu */
 	margin: 0;
 }
 
 .sidebar-links-item {
 	display: block; /* Tautan dalam satu kolom */
-	margin-bottom: 20px;
-	color: #333;
-	font-size: 18px;
+	margin-bottom: 0px;
+	font-size: 17px;
+	text-decoration: none; /* Hilangkan garis bawah */
+	color: #0056d2; /* Warna biru untuk tautan */
+	font-weight: bold; /* Teks tebal */
 }
 
 .sidebar-links-item:hover {
@@ -138,36 +134,80 @@
 	z-index: 1000; /* Pastikan overlay berada di bawah sidebar */
 }
 
+/* Dropdown container */
+.sidebar-dropdown {
+	position: relative;
+	cursor: pointer;
+	margin-bottom: 20px; /* Jarak antara dropdown */
+}
+
+/* Dropdown toggle */
+.dropdown-toggle {
+	font-size: 17px;
+	display: flex; /* Gunakan flex untuk sejajarkan teks dan ikon */
+	align-items: center;
+	justify-content: space-between; /* Pastikan teks dan ikon sejajar */
+	transition: color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+	text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Dropdown icon */
+.dropdown-icon {
+	margin-left: 10px; /* Jarak antara teks dan ikon */
+	padding-right: 13px; /* Jarak antara ikon dan tepi kanan */
+	font-size: 16px;
+	transition: transform 0.3s ease;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+	list-style: none;
+	padding: 0; /* Padding untuk dropdown */
+	margin: 0 0 0 10px; /* Indentasi untuk dropdown */
+	max-height: 0; /* Awalnya dropdown tersembunyi */
+	overflow: hidden; /* Sembunyikan konten yang melampaui batas */
+	opacity: 0; /* Awalnya dropdown tidak terlihat */
+	transition:
+		max-height 0.3s ease,
+		opacity 0.3s ease; /* Transisi untuk tinggi dan transparansi */
+	border-left: 2px solid #ddd; /* Garis pemisah */
+}
+
+.dropdown-item {
+	padding: 10px 0 0 10px; /* Padding untuk item dropdown */
+	text-decoration: none;
+	display: block;
+	font-size: 15px;
+	transition: color 0.3s ease;
+	color: #0056d2; /* Warna biru untuk item dropdown */
+}
+
+.dropdown-item:hover {
+	border-left: 2px solid darkgray; /* Warna biru saat hover */
+}
+
+/* Dropdown menu saat terbuka */
+.sidebar-dropdown.open .dropdown-menu {
+	max-height: 200px; /* Tinggi maksimum dropdown saat terbuka */
+	opacity: 1; /* Dropdown terlihat sepenuhnya */
+}
+
 /* Responsif untuk layar kecil (max-width: 350px) */
 @media (max-width: 350px) {
 	.navbar-logo-text {
 		display: none; /* Sembunyikan teks logo */
 	}
-
-	.navbar-links {
-		display: none; /* Sembunyikan tautan navbar */
-	}
-
-	.navbar-dropdown {
-		display: block; /* Tampilkan dropdown menu */
-	}
-}
-
-/* Responsif untuk layar sedang (351px hingga 768px) */
-@media (min-width: 351px) and (max-width: 768px) {
-	.navbar-links {
-		display: none; /* Sembunyikan tautan navbar */
-	}
-
-	.navbar-dropdown {
-		display: block; /* Tampilkan dropdown menu */
+	.navbar-right {
+		gap: 10px; /* Jarak lebih kecil */
 	}
 }
 
 /* Dark mode untuk navbar */
 body.dark-mode .navbar {
 	background-color: #333; /* Warna latar belakang gelap */
-	color: #fff; /* Warna teks putih */
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
 }
 
@@ -178,23 +218,15 @@ body.dark-mode .navbar.transparent {
 	backdrop-filter: blur(10px); /* Efek blur untuk transparansi */
 }
 
-body.dark-mode .navbar-logo-text {
-	color: #fff; /* Warna teks logo putih */
-}
-
-body.dark-mode .navbar-links-item {
-	color: #fff; /* Warna tautan putih */
-}
-
 /* Dark mode untuk sidebar */
 body.dark-mode .sidebar {
-	background-color: #333; /* Warna latar belakang sidebar gelap */
-	color: #fff; /* Warna teks sidebar putih */
+	background-color: rgba(51, 51, 51, 0.8); /* Warna gelap transparan */
+	backdrop-filter: blur(10px); /* Efek blur untuk transparansi */
 	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Bayangan lebih gelap */
 }
 
 body.dark-mode .sidebar-links-item {
-	color: #fff; /* Warna tautan sidebar putih */
+	color: #4fc3f7; /* Warna tautan sidebar putih */
 }
 
 body.dark-mode .sidebar-links-item:hover {
@@ -202,9 +234,26 @@ body.dark-mode .sidebar-links-item:hover {
 }
 
 body.dark-mode .sidebar-header .close-icon {
-	color: #fff; /* Warna ikon close putih */
+	color: #4fc3f7; /* Warna ikon close putih */
 }
 
 body.dark-mode .sidebar-overlay {
 	background-color: rgba(0, 0, 0, 0.8); /* Transparansi overlay lebih gelap */
+}
+
+/* Dark mode untuk dropdown item */
+body.dark-mode .dropdown-item {
+	color: #4fc3f7; /* Warna teks putih */
+}
+
+body.dark-mode .navbar-dark-mode-toggle {
+	color: #4fc3f7; /* Warna teks putih */
+}
+
+body.dark-mode .navbar-sidebar-toggle {
+	color: #4fc3f7; /* Warna teks putih */
+}
+
+body.dark-mode .navbar-logo-text {
+	color: #4fc3f7; /* Warna teks putih */
 }

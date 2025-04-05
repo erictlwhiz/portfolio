@@ -1,13 +1,13 @@
 /* Container for the algorithm page */
 .algorithm-page {
-	display: flex; /* Membuat component-sidebar dan konten utama sejajar secara horizontal */
+	display: flex; /* Membuat algorithm-component-sidebar dan konten utama sejajar secara horizontal */
 	align-items: flex-start; /* Sidebar hanya setinggi kontennya */
 }
 
-/* Component Sidebar styling */
-.component-sidebar {
+/* algorithm-component Sidebar styling */
+.algorithm-component-sidebar {
 	position: sticky; /* Sidebar tetap terlihat saat di-scroll */
-	top: 120px; /* Jarak dari atas halaman */
+	top: 110px; /* Tambahkan !important untuk memastikan properti ini diterapkan */
 	width: 150px;
 	padding-left: 20px;
 	border-right: 2px solid #ddd; /* Garis pemisah */
@@ -15,15 +15,15 @@
 	font-family: Arial, sans-serif; /* Konsisten dengan font utama */
 }
 
-/* Component Sidebar menu styling */
-.component-sidebar-menu {
+/* algorithm-component Sidebar menu styling */
+.algorithm-component-sidebar-menu {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-/* Component Sidebar link styling */
-.component-sidebar-link {
+/* algorithm-component Sidebar link styling */
+.algorithm-component-sidebar-link {
 	text-decoration: none;
 	color: #0056d2; /* Warna biru untuk link */
 	font-size: 15px;
@@ -32,11 +32,11 @@
 	transition: color 0.3s ease;
 }
 
-.component-sidebar-link:hover {
+.algorithm-component-sidebar-link:hover {
 	border-right: 2px solid darkgray; /* Garis biru saat hover */
 }
 
-body.dark-mode .component-sidebar-link {
+body.dark-mode .algorithm-component-sidebar-link {
 	color: #4fc3f7; /* Warna biru untuk link */
 }
 
@@ -57,7 +57,7 @@ body.dark-mode .component-sidebar-link {
 
 /* Description styling */
 .algorithm-description {
-	font-size: 1.2rem;
+	font-size: 1rem;
 	line-height: 1.6;
 	margin-bottom: 30px;
 	text-align: center;
@@ -89,7 +89,7 @@ body.dark-mode .component-sidebar-link {
 
 /* Responsif untuk layar kecil (max-width: 350px) */
 @media (max-width: 768px) {
-	.component-sidebar {
+	.algorithm-component-sidebar {
 		display: none; /* Sembunyikan teks logo */
 	}
 }

@@ -4,11 +4,11 @@ import './styles/LearnReact.css';
 const LearnReact = () => {
 	return (
 		<div className="react-page">
-			{/* Component Sidebar Menu */}
-			<div className="component-sidebar">
-				<ul className="component-sidebar-menu">
+			{/* react-component Sidebar Menu */}
+			<div className="react-component-sidebar">
+				<ul className="react-component-sidebar-menu">
 					<li>
-						<a href="#setup" className="component-sidebar-link">
+						<a href="#setup" className="react-component-sidebar-link">
 							Setup
 						</a>
 					</li>

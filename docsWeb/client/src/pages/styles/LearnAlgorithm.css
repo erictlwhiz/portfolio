@@ -15,15 +15,6 @@
 	font-family: Arial, sans-serif; /* Konsisten dengan font utama */
 }
 
-/* Component Sidebar title styling */
-.component-sidebar-title {
-	font-size: 1.5rem;
-	font-weight: bold;
-	color: #333;
-	margin-bottom: 15px;
-	text-align: left;
-}
-
 /* Component Sidebar menu styling */
 .component-sidebar-menu {
 	list-style: none;
@@ -43,6 +34,10 @@
 
 .component-sidebar-link:hover {
 	border-right: 2px solid darkgray; /* Garis biru saat hover */
+}
+
+body.dark-mode .component-sidebar-link {
+	color: #4fc3f7; /* Warna biru untuk link */
 }
 
 /* Main content container */
@@ -77,7 +72,6 @@
 .algorithm-subtitle {
 	font-size: 1.8rem;
 	font-weight: bold;
-	color: #333;
 	margin-bottom: 15px;
 }
 
@@ -98,8 +92,4 @@
 	.component-sidebar {
 		display: none; /* Sembunyikan teks logo */
 	}
-}
-
-body.dark-mode .component-sidebar-link {
-	color: #4fc3f7; /* Warna biru untuk link */
 }

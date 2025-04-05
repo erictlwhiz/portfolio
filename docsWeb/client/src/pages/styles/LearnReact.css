@@ -1,25 +1,104 @@
-.react-setup-container {
+/* Container for the react page */
+.react-page {
+	display: flex; /* Membuat component-sidebar dan konten utama sejajar secara horizontal */
+	align-items: flex-start; /* Sidebar hanya setinggi kontennya */
+}
+
+/* Component Sidebar styling */
+.component-sidebar {
+	position: sticky; /* Sidebar tetap terlihat saat di-scroll */
+	top: 120px; /* Jarak dari atas halaman */
+	width: 150px;
+	padding-left: 20px;
+	border-right: 2px solid #ddd; /* Garis pemisah */
+	overflow-y: auto; /* Tambahkan scroll jika konten terlalu panjang */
+	font-family: Arial, sans-serif; /* Konsisten dengan font utama */
+}
+
+/* Component Sidebar menu styling */
+.component-sidebar-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Component Sidebar link styling */
+.component-sidebar-link {
+	text-decoration: none;
+	color: #0056d2; /* Warna biru untuk link */
+	font-size: 15px;
+	display: block;
+	padding: 5px 0;
+	transition: color 0.3s ease;
+}
+
+.component-sidebar-link:hover {
+	border-right: 2px solid darkgray; /* Garis biru saat hover */
+}
+
+body.dark-mode .component-sidebar-link {
+	color: #4fc3f7; /* Warna biru untuk link */
+}
+
+/* Main content container */
+.react-container {
+	flex: 1; /* Konten utama mengambil sisa ruang */
 	padding: 20px;
-	max-width: 1200px;
-	margin: 0 auto;
-	font-family: Arial, sans-serif;
+	overflow-y: auto; /* Scroll terpisah untuk konten utama */
 }
 
-.react-setup-container h1 {
-	color: #007bff;
-	font-size: 36px;
+/* Title styling */
+.react-title {
+	font-size: 2.5rem;
+	font-weight: bold;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
-.react-setup-container ol {
-	margin: 20px auto;
-	max-width: 600px;
-	text-align: left;
+/* Description styling */
+.react-description {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	margin-bottom: 30px;
+	text-align: center;
 }
 
-.react-setup-container code {
-	background-color: #f4f4f4;
-	padding: 2px 4px;
+/* Section styling */
+.react-section {
+	margin-bottom: 40px;
+}
+
+/* Subtitle styling */
+.react-subtitle {
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+/* List styling */
+.react-list {
+	padding-left: 20px;
+}
+
+.react-list li {
+	font-size: 1rem;
+	line-height: 1.5;
+	margin-bottom: 10px;
+}
+
+.react-list li code {
+	background-color: #eeeeee;
+	padding: 0px;
 	border-radius: 4px;
-	font-family: monospace;
+}
+
+/* Responsif untuk layar kecil (max-width: 350px) */
+@media (max-width: 768px) {
+	.component-sidebar {
+		display: none; /* Sembunyikan teks logo */
+	}
+}
+
+.dark-mode .react-list li code {
+	background-color: rgb(133, 132, 132); /* Warna latar belakang gelap */
 }

@@ -5,13 +5,15 @@ import {
 	Route,
 	Navigate,
 } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop'; // Pastikan path ini sesuai dengan lokasi ScrollToTop.jsx
 import './App.css'; // Pastikan path ini sesuai dengan lokasi App.css
 import Home from './pages/Home'; // Pastikan path ini sesuai dengan lokasi Home.jsx
-import Algorithm from './pages/Algorithm'; // Pastikan path ini sesuai dengan lokasi Algorithm.jsx
+import LearnAlgorithm from './pages/LearnAlgorithm'; // Pastikan path ini sesuai dengan lokasi Algorithm.jsx
 import LearnReact from './pages/LearnReact'; // Pastikan path ini sesuai dengan lokasi ReactSetup.jsx
 import About from './pages/About'; // Pastikan path ini sesuai dengan lokasi About.jsx
 import Navbar from './components/Navbar'; // Pastikan path ini sesuai dengan lokasi Navbar.jsx
 import Footer from './components/Footer'; // Pastikan path ini sesuai dengan lokasi Footer.jsx
+import Maintenance from './pages/Maintenance'; // Pastikan path ini sesuai dengan lokasi Maintenance.jsx
 
 function App() {
 	const [isDarkMode, setIsDarkMode] = useState(false);
@@ -44,6 +46,7 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
+				<ScrollToTop />
 				{/* Navbar akan selalu terlihat di semua halaman */}
 				<Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
 				<Routes>
@@ -52,11 +55,13 @@ function App() {
 					{/* Render Home.jsx jika path URL adalah /home */}
 					<Route path="/home" element={<Home />} />
 					{/* Render ReactSetup.jsx jika path URL adalah /reactsetup */}
-					<Route path="/algorithm" element={<Algorithm />} />
+					<Route path="/learnAlgorithm" element={<LearnAlgorithm />} />
 					{/* Render ReactSetup.jsx jika path URL adalah /reactsetup */}
 					<Route path="/learnReact" element={<LearnReact />} />
 					{/* Render About.jsx jika path URL adalah /about */}
 					<Route path="/about" element={<About />} />
+					{/* Render Maintenance.jsx jika path URL adalah /maintenance */}
+					<Route path="/maintenance" element={<Maintenance />} />
 				</Routes>
 			</Router>
 			<Footer />

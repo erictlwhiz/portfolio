@@ -1,0 +1,45 @@
+/* Container styling */
+.maintenance-container {
+	padding: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+.maintenance-header {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.maintenance-header h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+}
+
+.maintenance-header p {
+	font-size: 18px;
+}
+
+/* Icon styling */
+.maintenance-icon {
+	margin-top: 60px;
+	text-align: center;
+	animation: spin 3s linear infinite; /* Animasi berputar */
+	color: #555; /* Warna abu-abu untuk ikon */
+	font-size: 150px; /* Ukuran ikon */
+}
+
+/* Animasi untuk ikon gear */
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.dark-mode .maintenance-icon {
+	color: #fff; /* Warna putih untuk ikon dalam mode gelap */
+}

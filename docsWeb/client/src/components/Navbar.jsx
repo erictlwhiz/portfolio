@@ -92,7 +92,7 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
 						<ul className="dropdown-menu">
 							<li>
 								<Link
-									to="/algorithm"
+									to="/learnAlgorithm"
 									className="dropdown-item"
 									onClick={toggleSidebar}
 								>
@@ -129,20 +129,11 @@ const Navbar = ({ toggleDarkMode, isDarkMode }) => {
 						<ul className="dropdown-menu">
 							<li>
 								<Link
-									to="/algorithm"
+									to="/maintenance"
 									className="dropdown-item"
 									onClick={toggleSidebar}
 								>
-									Algorithm
-								</Link>
-							</li>
-							<li>
-								<Link
-									to="/learnReact"
-									className="dropdown-item"
-									onClick={toggleSidebar}
-								>
-									React
+									Coming Soon
 								</Link>
 							</li>
 						</ul>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/LearnAlgorithm.css'; // Import file CSS untuk styling
 
-const Algorithm = () => {
+const LearnAlgorithm = () => {
 	return (
 		<div className="algorithm-page">
 			{/* Component Sidebar Menu */}
@@ -80,4 +80,4 @@ const Algorithm = () => {
 	);
 };
 
-export default Algorithm;
+export default LearnAlgorithm;

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
-	BrowserRouter as Router,
 	Routes,
 	Route,
 	Navigate,
+	useLocation,
 } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop'; // Pastikan path ini sesuai dengan lokasi ScrollToTop.jsx
 import './App.css'; // Pastikan path ini sesuai dengan lokasi App.css
@@ -43,9 +43,22 @@ function App() {
 		}
 	}, []);
 
+	const location = useLocation();
+
+	useEffect(() => {
+		const pathToTitleMap = {
+			'/home': 'Home',
+			'/learnAlgorithm': 'Algorithm',
+			'/learnReact': 'React',
+			'/about': 'About',
+			'/maintenance': 'Coming Soon',
+		};
+		const defaultTitle = 'ETLWHIZ';
+		document.title = pathToTitleMap[location.pathname] || defaultTitle;
+	}, [location]);
+
 	return (
 		<div className="App">
-			<Router>
 				<ScrollToTop />
 				{/* Navbar akan selalu terlihat di semua halaman */}
 				<Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
@@ -63,7 +76,6 @@ function App() {
 					{/* Render Maintenance.jsx jika path URL adalah /maintenance */}
 					<Route path="/maintenance" element={<Maintenance />} />
 				</Routes>
-			</Router>
 			<Footer />
 		</div>
 	);

@@ -27,7 +27,7 @@ const About = () => {
 				<div className="about-card">
 					<img src="/logo.png" alt="Our Vision" className="about-image" />
 					<h2>Our Mission</h2>
-					<p>
+					<div>
 						<p>
 							Through this initiative, the author aspires to bridge the gap
 							between learning and application, inspiring others to pursue their
@@ -38,7 +38,7 @@ const About = () => {
 							ETLWHIZ embodies a commitment to continuous learning and giving
 							back to the world of technology and beyond.
 						</p>
-					</p>
+						</div>
 				</div>
 			</div>
 		</div>

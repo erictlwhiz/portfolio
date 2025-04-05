@@ -4,11 +4,7 @@ import './styles/Home.css';
 const Home = () => {
 	return (
 		<div className="home-container">
-			<h1>Welcome to the Documentation Page</h1>
-			<p>
-				This page contains useful guides and tutorials for setting up React
-				projects.
-			</p>
+			<h1>Welcome</h1>
 			<p>Use the navigation bar above to explore different sections.</p>
 		</div>
 	);

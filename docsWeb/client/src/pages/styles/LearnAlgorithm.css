@@ -36,10 +36,6 @@
 	border-right: 2px solid darkgray; /* Garis biru saat hover */
 }
 
-body.dark-mode .algorithm-component-sidebar-link {
-	color: #4fc3f7; /* Warna biru untuk link */
-}
-
 /* Main content container */
 .algorithm-container {
 	flex: 1; /* Konten utama mengambil sisa ruang */
@@ -68,6 +64,10 @@ body.dark-mode .algorithm-component-sidebar-link {
 	margin-bottom: 40px;
 }
 
+.algorithm-section a {
+	color: #0056d2; /* Warna biru untuk link */
+}
+
 /* Subtitle styling */
 .algorithm-subtitle {
 	font-size: 1.8rem;
@@ -92,4 +92,12 @@ body.dark-mode .algorithm-component-sidebar-link {
 	.algorithm-component-sidebar {
 		display: none; /* Sembunyikan teks logo */
 	}
+}
+
+body.dark-mode .algorithm-component-sidebar-link {
+	color: #4fc3f7; /* Warna biru untuk link */
+}
+
+body.dark-mode .algorithm-section a {
+	color: #4fc3f7; /* Warna biru untuk link */
 }

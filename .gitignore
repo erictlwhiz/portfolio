@@ -17,3 +17,6 @@
 
 # Ignore vscode settings
 .vscode/
+
+# Ignore venvs folder
+**/venv/

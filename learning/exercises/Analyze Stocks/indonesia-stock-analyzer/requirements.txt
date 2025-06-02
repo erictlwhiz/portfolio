@@ -1,0 +1,8 @@
+Flask
+pandas
+yfinance
+matplotlib
+plotly
+numpy
+requests
+beautifulsoup4

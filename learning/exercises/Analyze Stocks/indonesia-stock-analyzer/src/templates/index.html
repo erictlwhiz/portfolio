@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indonesia Stock Analyzer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Indonesia Stock Analyzer</h1>
+        <form id="stock-form" class="mt-4">
+            <div class="form-group">
+                <label for="stock-symbol">Enter Stock Symbol:</label>
+                <input type="text" class="form-control" id="stock-symbol" placeholder="e.g. ASII.JK" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Get Financial Data</button>
+        </form>
+        <div id="result" class="mt-5">
+            <h2>Financial Summary</h2>
+            <div id="summary"></div>
+            <div id="table-container" class="mt-4"></div>
+            <div id="chart-container" class="mt-4"></div>
+            <a id="download-csv" class="btn btn-success mt-3" style="display:none;">Download CSV</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#stock-form').on('submit', function(event) {
+                event.preventDefault();
+                const stockSymbol = $('#stock-symbol').val();
+                $.ajax({
+                    url: '/',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ stock_symbol: stockSymbol }),
+                    success: function(data) {
+                        $('#summary').html(data.summary);
+                        $('#table-container').html(data.table);
+                        $('#chart-container').html(data.chart);
+                        $('#download-csv').attr('href', data.csv_url).show();
+                    },
+                    error: function() {
+                        alert('Error fetching data. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
